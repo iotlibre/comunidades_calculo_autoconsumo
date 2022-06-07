@@ -1,0 +1,6 @@
+;config_autoconsumido.ini
+
+[emoncms_server]
+emon_ip : direccion_del_servidor.com
+query_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
