@@ -22,6 +22,27 @@ logging.basicConfig(
 
 parser = configparser.ConfigParser()
 
+'''
+Cambio de una fecha en formato iso a formato Datetime
+'ultima': '2022-06-02T14:00:00+02:00'
+2022-06-07T11:00:00+02:00
+year= int(d['date'].split("/")[0])
+type(isoD)
+<class 'datetime.datetime'>
+
+
+'''
+def isoformatD(iso):
+     dateL= iso.split("+")[0].split("T")
+     year = int(dateL[0].split("-")[0])
+     month = int(dateL[0].split("-")[1])
+     day = int(dateL[0].split("-")[2])
+     hour = int(dateL[1].split(":")[0])
+     minutes = int(dateL[1].split(":")[0])
+     isoD = datetime(year, month, day, hour, minutes, 00, 00000)
+     logging.debug("isoD :" + str(isoD))
+     return isoD
+
 
 '''datetime
 https://docs.python.org/3/library/datetime.html#module-datetime
@@ -48,7 +69,7 @@ def emoncms_tx(position):
 
     timeI = reading_register_[position]["ultima"].split("+")[0]
     zoneI = int(reading_register_[position]["ultima"].split("+")[1].split(":")[0])
-    enerTimeS = (datetime.fromisoformat(timeI) - timedelta(hours=zoneI)).isoformat()
+    enerTimeS = (isoformatD(timeI) - timedelta(hours=zoneI)).isoformat()
     
 
     urlEmon =  "http://"
@@ -93,8 +114,8 @@ def procesar_lectura(data0n,data1n,position):
     logging.debug(data0n[1])
     logging.debug(data1n[1])    
     
-    lastTimeD = datetime.fromisoformat(ultimaI)
-    currentTimeD = datetime.fromisoformat(data0n[0])
+    lastTimeD = isoformatD(ultimaI)
+    currentTimeD = isoformatD(data0n[0])
     
     timeOk = 1
     decodedOk = 1
@@ -220,7 +241,7 @@ def consulta_de_consumos(position):
     userKey = reading_register_[position]["key"]
     startDateQ=""
     # last datetime (registered datetimeformat)
-    lastDatetimeD = datetime.fromisoformat(x["ultima"])   #tiempo de la última lectura del query anterior
+    lastDatetimeD = isoformatD(x["ultima"])   #tiempo de la última lectura del query anterior
     logging.debug("lastDatetimeD ---> " + str(lastDatetimeD) )
     end_date_d = datetime.now()
     delta= timedelta(days=20)
