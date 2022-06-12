@@ -70,7 +70,7 @@ def emoncms_tx(position):
     #Correcciones horarias 
     timeI = reading_register_[position]["ultima"].split("+")[0]
     # emonCms muestra el consumo de una hora en el inicio de la hora (+1)
-    zoneI = int(reading_register_[position]["ultima"].split("+")[1].split(":")[0]) + 1
+    zoneI = int(reading_register_[position]["ultima"].split("+")[1].split(":")[0]) - 1
     enerTimeS = (isoformatD(timeI) - timedelta(hours=zoneI)).isoformat()
     
 
