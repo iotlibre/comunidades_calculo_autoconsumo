@@ -1,5 +1,5 @@
 # comunidades_calculo_autoconsumo
-**calculo_autoconsumido_v9.py **
+**calculo_autoconsumido_v9.py**
 
 Este escript calcula la energía consumida, autoconsumida y exportada cada hora partiendo de un servidor emonCMS
 
