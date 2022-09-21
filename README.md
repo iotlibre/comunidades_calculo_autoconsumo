@@ -1,4 +1,6 @@
 # comunidades_calculo_autoconsumo
+**calculo_autoconsumido_v9.py **
+
 Este escript calcula la energía consumida, autoconsumida y exportada cada hora partiendo de un servidor emonCMS
 
 Se parte de dos registros de energía, la energía consumida y la energía generada, entendiendo como energía generada la correspondinte incluyendo el coeficiente de reparto
