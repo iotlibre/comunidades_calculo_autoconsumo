@@ -10,3 +10,7 @@ Los ficheros de configuración son:
 * **reading_register.txt** donde se almacenan las últimas lecturas realizadas para tenerlas en cuenta la siguiente vez que se corre el escript
 
 Lo ideal es ejecutar este escript automaticamente desde el crontab de un servidor aunque también se puede hacer manualmente
+
+Para cubrir las necesidades de proyectos que tienen que interactuar con bases de datos MySQL se han desarrollado los siguentes scripts:
+* **actualizacion_db_v00.py** Es para escrir en una base de datos MySQL los calclulos de energía autoconsumida
+* **borrar_registros.py** Herramienta para simplificar el borrado de resgistros
