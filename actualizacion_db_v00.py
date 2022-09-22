@@ -62,7 +62,7 @@ def isoformatD(iso):
      month = int(dateL[0].split("-")[1])
      day = int(dateL[0].split("-")[2])
      hour = int(dateL[1].split(":")[0])
-     minutes = int(dateL[1].split(":")[0])
+     minutes = int(dateL[1].split(":")[1])
      isoD = datetime(year, month, day, hour, minutes, 00, 00000)
      logging.debug("isoD :" + str(isoD))
      return isoD
